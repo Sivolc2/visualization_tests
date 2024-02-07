@@ -24,3 +24,4 @@ def format_chart(figure: go.Figure, layout_options: Dict[str, Any]) -> go.Figure
     """
     figure.update_layout(**layout_options)
     return figure
+

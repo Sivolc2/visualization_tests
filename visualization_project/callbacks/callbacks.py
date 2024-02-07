@@ -1,6 +1,7 @@
 ## For callbacks used across multiple apps
 import dash
 from dash.dependencies import Input, Output
+from components.interface import update_output
 
 def register_callbacks(app: dash.Dash) -> None:
     """
@@ -13,5 +14,5 @@ def register_callbacks(app: dash.Dash) -> None:
         [Input('dummy-input', 'value')]
     )
     def update_output(value):
-        return f"You have entered {value}"
+            return f"You have entered {value}"
 
