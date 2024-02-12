@@ -1,39 +1,37 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output
-from apps.app1 import layout as app1_layout
-from apps.app2 import layout as app2_layout
-from callbacks import register_callbacks
+from dash import Dash, html, dcc, Input, Output, page_registry, page_container
+import dash_bootstrap_components as dbc
+from visualization_project.components.navbar import create_navbar
 
-app = dash.Dash(__name__)
+NAVBAR = create_navbar()
+# To use Font Awesome Icons
+FA621 = "https://use.fontawesome.com/releases/v6.2.1/css/all.css"
+APP_TITLE = "My Dash App"
 
-# Define a simple layout with a dropdown to switch between apps
-app.layout = html.Div([
-    dcc.Dropdown(
-        id='app-selector',
-        options=[
-            {'label': 'App 1', 'value': 'app1'},
-            {'label': 'App 2', 'value': 'app2'}
-        ],
-        value='app1'  # Default value
-    ),
-    html.Div(id='app-content')
-])
-
-@app.callback(
-    Output('app-content', 'children'),
-    [Input('app-selector', 'value')]
+app = Dash(
+    __name__,
+    suppress_callback_exceptions=True,
+    external_stylesheets=[
+        dbc.themes.LUX,  # Dash Themes CSS
+        FA621,  # Font Awesome Icons CSS
+    ],
+    title=APP_TITLE,
+    use_pages=True,  # New in Dash 2.7 - Allows us to register pages
 )
-def display_app(selected_app):
-    if selected_app == 'app1':
-        return app1_layout
-    elif selected_app == 'app2':
-        return app2_layout
-    else:
-        return "Please select an app"
 
-register_callbacks(app)
+app.layout = dcc.Loading(  # <- Wrap App with Loading Component
+    id='loading_page_content',
+    children=[
+        html.Div(
+            [
+                NAVBAR,
+                page_container
+            ]
+        )
+    ],
+    color='primary',  # <- Color of the loading spinner
+)
+
+server = app.server
 
 if __name__ == '__main__':
     app.run_server(debug=True)

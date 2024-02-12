@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
+
+import plotly.express as px
 import polars as pl
-from typing import Dict
 
 def create_bar_chart(data: pl.DataFrame, x_col: str, y_col: str, title: str) -> go.Figure:
     """
@@ -18,10 +19,9 @@ def create_line_chart(data: pl.DataFrame, x_col: str, y_col: str, title: str) ->
     fig.update_layout(title=title)
     return fig
 
-def format_chart(figure: go.Figure, layout_options: Dict[str, Any]) -> go.Figure:
+def format_chart(figure: go.Figure, layout_options) -> go.Figure:
     """
     Applies formatting options to a given Plotly figure.
     """
     figure.update_layout(**layout_options)
     return figure
-

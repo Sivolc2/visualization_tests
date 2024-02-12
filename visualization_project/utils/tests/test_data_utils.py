@@ -1,6 +1,6 @@
 import pytest
 import polars as pl
-from utilities.utils import convert_df_to_dash
+from visualization_project.utils.data_utils import convert_df_to_dash
 
 def test_convert_df_to_dash_empty_dataframe():
     """

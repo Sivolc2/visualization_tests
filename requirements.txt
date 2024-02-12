@@ -1,5 +1,10 @@
 dash
 dash-core-components
 dash-html-components
+dash-bootstrap-components
 plotly
 polars
+pandas
+keplergl
+pytest
+mock

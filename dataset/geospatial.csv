@@ -1,0 +1,4 @@
+name, category, id, h3_index, value_a, lat, lon
+blocky, Mountain, 0, h3indexvalue, 10, 0, 0
+stony, Mountain, 1, h3indexvalue, 5, 0, 50
+fluidic, Valley, 2, h3indexvalue, 100, 50, 0

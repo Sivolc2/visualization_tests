@@ -1,5 +1,5 @@
 import polars as pl
-import dash_table
+from dash import dash_table
 from typing import Any
 
 def convert_df_to_dash(data: pl.DataFrame) -> dash_table.DataTable:
@@ -17,3 +17,8 @@ def format_datetime(data: pl.DataFrame, column_name: str) -> pl.DataFrame:
     # Placeholder for actual datetime formatting logic.
     # For the purpose of this example, we'll assume the datetime is already formatted.
     return data
+
+def reverse_text(n_clicks, text):
+    if n_clicks and text:
+        return text[::-1]
+    return ''
