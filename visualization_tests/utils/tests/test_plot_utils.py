@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 import polars as pl
 import plotly.graph_objects as go
-from visualization_project.utils.plot_utils import create_bar_chart, create_line_chart, format_chart
+from visualization_tests.utils.plot_utils import create_bar_chart, create_line_chart, format_chart
 
 # Sample data for testing
 sample_data = pl.DataFrame({"x": [1, 2, 3], "y": [4, 5, 6], "lat": [1, 2, 3], "lon": [4, 5, 6]})

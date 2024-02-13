@@ -5,7 +5,7 @@ from typing import Dict
 import plotly.express as px
 
 
-from visualization_project.utils.plot_utils import create_bar_chart
+from visualization_tests.utils.plot_utils import create_bar_chart
 
 def specific_chart(selected_file):
     '''

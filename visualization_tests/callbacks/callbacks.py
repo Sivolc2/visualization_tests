@@ -2,7 +2,7 @@
 import dash
 from dash.dependencies import Input, Output, State
 from utils.data_utils import reverse_text
-from visualization_project.plots.visualization import specific_chart
+from visualization_tests.plots.visualization import specific_chart
 
 import polars as pl
 import plotly.express as px

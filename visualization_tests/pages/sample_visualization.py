@@ -2,6 +2,9 @@ import pandas as pd
 import plotly.express as px
 from dash import html, dcc, Input, Output, callback, register_page
 
+from keplergl import KeplerGl
+
+
 register_page(
     __name__,
     top_nav=True,
@@ -25,6 +28,12 @@ layout = html.Div([
         options=[{'label': link.split('/')[-1], 'value': link} for link in aws_s3_links],
         value=aws_s3_links[0]  # Default value or None
     ),
-    dcc.Graph(id='plot', figure=initial_fig)
+    dcc.Graph(id='plot', figure=initial_fig),
+    html.Iframe(
+        id="keplergl_map",
+        src="/assets/keplergl_map.html",
+        width="100%",
+        height="500px"
+    )
 ])
 

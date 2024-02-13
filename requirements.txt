@@ -8,3 +8,4 @@ pandas
 keplergl
 pytest
 mock
+Flask
